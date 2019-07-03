@@ -33,7 +33,7 @@
         tools:text="Cooking, Cuisine and Class" />
 
     <TextView
-        android:id="@+id/tvAuthor"
+        android:id="@+id/tvAuthors"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimaryDark"
@@ -58,7 +58,7 @@
         android:textSize="@dimen/authors_text_size"
         app:layout_constraintEnd_toEndOf="@id/guideline2"
         app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/tvAuthor"
+        app:layout_constraintTop_toBottomOf="@id/tvAuthors"
         tools:text="Cambridge University Press" />
 
     <TextView
@@ -71,7 +71,7 @@
         android:textSize="@dimen/authors_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline2"
-        app:layout_constraintTop_toBottomOf="@id/tvAuthor"
+        app:layout_constraintTop_toBottomOf="@id/tvAuthors"
         tools:text="24-06-1982" />
 
 </android.support.constraint.ConstraintLayout>
