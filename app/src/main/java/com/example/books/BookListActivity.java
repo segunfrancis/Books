@@ -3,6 +3,8 @@ package com.example.books;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -15,12 +17,16 @@ import java.util.ArrayList;
 public class BookListActivity extends AppCompatActivity {
 
     private ProgressBar mLoadingProgress;
+    private RecyclerView rvBooks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_list);
         mLoadingProgress = findViewById(R.id.pb_loading);
+        rvBooks = findViewById(R.id.rvBooks);
+        LinearLayoutManager booksLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        rvBooks.setLayoutManager(booksLayoutManager);
 
         try {
             URL bookUrl = ApiUtil.buildUrl("cooking");
@@ -46,22 +52,18 @@ public class BookListActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            TextView tvResult = findViewById(R.id.tvResponse);
             TextView tvError = findViewById(R.id.tv_error);
             mLoadingProgress.setVisibility(View.INVISIBLE);
             if (result == null) {
-                tvResult.setVisibility(View.INVISIBLE);
+                rvBooks.setVisibility(View.INVISIBLE);
                 tvError.setVisibility(View.VISIBLE);
             } else {
-                tvResult.setVisibility(View.VISIBLE);
+                rvBooks.setVisibility(View.VISIBLE);
                 tvError.setVisibility(View.INVISIBLE);
             }
             ArrayList<Book> books = ApiUtil.getBooksFromJson(result);
-            String resultString = "";
-            for (Book book : books) {
-                resultString = resultString + book.title + "\n" + book.publishedDate + "\n\n";
-            }
-            tvResult.setText(resultString);
+            BooksAdapter adapter = new BooksAdapter(books);
+            rvBooks.setAdapter(adapter);
         }
 
         @Override
