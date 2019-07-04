@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="Book"
             type="com.example.books.Book" />
@@ -26,6 +27,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="@{Book.title}"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="36sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +41,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="@{Book.subTitle}"
+                android:textColor="@color/colorPrimary"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -50,9 +53,9 @@
                 android:layout_height="171dp"
                 android:layout_marginStart="@dimen/standard_margin"
                 android:layout_marginTop="@dimen/standard_margin"
+                android:imageUrl="@{Book.thumbnail}"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvSubTitle"
-                app:srcCompat="@drawable/book_open" />
+                app:layout_constraintTop_toBottomOf="@+id/tvSubTitle" />
 
             <TextView
                 android:id="@+id/tvAuthors"
@@ -62,6 +65,7 @@
                 android:layout_marginTop="@dimen/standard_margin"
                 android:text="@{Book.authors}"
                 android:textSize="18sp"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintStart_toEndOf="@+id/imgCover"
                 app:layout_constraintTop_toBottomOf="@+id/tvSubTitle" />
 
@@ -94,10 +98,10 @@
                 android:layout_marginStart="@dimen/standard_margin"
                 android:layout_marginTop="@dimen/standard_margin"
                 android:layout_marginEnd="@dimen/standard_margin"
-                android:text="@{Book.description}"
-                android:textSize="16sp"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
+                android:text="@{Book.description}"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imgCover" />
