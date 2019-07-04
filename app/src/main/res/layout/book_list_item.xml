@@ -9,10 +9,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        app:srcCompat="@drawable/book_open"
         app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/book_open" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -54,6 +54,7 @@
         android:id="@+id/tvPublisher"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
         android:textAlignment="textStart"
         android:textSize="@dimen/authors_text_size"
         app:layout_constraintEnd_toEndOf="@id/guideline2"
@@ -67,6 +68,7 @@
         android:layout_height="wrap_content"
         android:paddingEnd="@dimen/published_date_padding"
         android:paddingRight="@dimen/published_date_padding"
+        android:paddingBottom="8dp"
         android:textAlignment="textEnd"
         android:textSize="@dimen/authors_text_size"
         app:layout_constraintEnd_toEndOf="parent"
