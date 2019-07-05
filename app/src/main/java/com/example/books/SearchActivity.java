@@ -3,7 +3,6 @@ package com.example.books;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,6 +10,8 @@ import android.widget.Toast;
 import java.net.URL;
 
 public class SearchActivity extends AppCompatActivity {
+
+    public static String QUERY = "Query";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class SearchActivity extends AppCompatActivity {
             } else {
                 URL queryURL = ApiUtil.buildUrl(title, author, publisher, isbn);
                 Intent intent = new Intent(getApplicationContext(), BookListActivity.class);
-                intent.putExtra("Query", queryURL);
+                intent.putExtra(QUERY, queryURL.toString());
                 startActivity(intent);
             }
         });

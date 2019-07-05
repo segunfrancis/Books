@@ -34,7 +34,7 @@ public class BookListActivity extends AppCompatActivity implements SearchView.On
         rvBooks.setLayoutManager(booksLayoutManager);
 
         Intent intent = getIntent();
-        String query = intent.getStringExtra("Query");
+        String query = intent.getStringExtra(SearchActivity.QUERY);
         URL bookUrl;
         try {
             if (query == null || query.isEmpty()) {
