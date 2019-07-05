@@ -47,10 +47,10 @@ public class ApiUtil {
     public static URL buildUrl(String title, String author, String publisher, String isbn) {
         URL url = null;
         StringBuilder sb = new StringBuilder();
-        if (!title.isEmpty()) sb.append(TITLE + title + "+");
-        if (!author.isEmpty()) sb.append(AUTHOR + author + "+");
-        if (!publisher.isEmpty()) sb.append(PUBLISHER + publisher + "+");
-        if (!isbn.isEmpty()) sb.append(ISBN + isbn + "+");
+        if (!title.isEmpty()) sb.append(TITLE).append(title).append("+");
+        if (!author.isEmpty()) sb.append(AUTHOR).append(author).append("+");
+        if (!publisher.isEmpty()) sb.append(PUBLISHER).append(publisher).append("+");
+        if (!isbn.isEmpty()) sb.append(ISBN).append(isbn).append("+");
         sb.setLength(sb.length() - 1);
         String query = sb.toString();
         Uri uri = Uri.parse(BASE_API_URL).buildUpon()
