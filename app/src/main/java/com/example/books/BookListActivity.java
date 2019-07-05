@@ -1,5 +1,6 @@
 package com.example.books;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -32,8 +33,15 @@ public class BookListActivity extends AppCompatActivity implements SearchView.On
         LinearLayoutManager booksLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         rvBooks.setLayoutManager(booksLayoutManager);
 
+        Intent intent = getIntent();
+        String query = intent.getStringExtra("Query");
+        URL bookUrl;
         try {
-            URL bookUrl = ApiUtil.buildUrl("cooking");
+            if (query == null || query.isEmpty()) {
+                bookUrl = ApiUtil.buildUrl("cooking");
+            } else {
+                bookUrl = new URL(query);
+            }
             new BooksQueryTask().execute(bookUrl);
         } catch (Exception e) {
             Log.d("error", e.getMessage());
@@ -47,6 +55,18 @@ public class BookListActivity extends AppCompatActivity implements SearchView.On
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setOnQueryTextListener(this);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_advanced_search:
+                Intent intent = new Intent(this, SearchActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
