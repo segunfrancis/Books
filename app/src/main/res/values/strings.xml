@@ -2,4 +2,10 @@
     <string name="app_name">Books</string>
     <string name="error_data_message">Error Loading data from the Google Books API</string>
     <string name="search">Search</string>
+
+    <!-- EditText Hints -->
+    <string name="hint_title">Insert Title</string>
+    <string name="hint_author">Insert Author(s)</string>
+    <string name="hint_publisher">Insert Publisher</string>
+    <string name="hint_ISBN">Insert ISBN</string>
 </resources>
