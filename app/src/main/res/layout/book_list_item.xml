@@ -12,7 +12,8 @@
         app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/book_open" />
+        app:srcCompat="@drawable/book_open"
+        android:contentDescription="@string/book_image" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"

@@ -55,42 +55,46 @@
                 android:layout_marginTop="@dimen/standard_margin"
                 android:imageUrl="@{Book.thumbnail}"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvSubTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/tvSubTitle"
+                android:contentDescription="@string/book_image" />
 
             <TextView
                 android:id="@+id/tvAuthors"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/standard_margin"
                 android:layout_marginTop="@dimen/standard_margin"
-                android:paddingEnd="8dp"
+                android:layout_marginEnd="8dp"
                 android:text="@{Book.authors}"
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imgCover"
                 app:layout_constraintTop_toBottomOf="@+id/tvSubTitle" />
 
             <TextView
                 android:id="@+id/tvPublisher"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/standard_margin"
                 android:layout_marginTop="@dimen/standard_margin"
-                android:paddingEnd="8dp"
+                android:layout_marginEnd="8dp"
                 android:text="@{Book.publisher}"
                 android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imgCover"
                 app:layout_constraintTop_toBottomOf="@+id/tvAuthors" />
 
             <TextView
                 android:id="@+id/tvPublishedDate"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/standard_margin"
                 android:layout_marginTop="@dimen/standard_margin"
-                android:paddingEnd="8dp"
+                android:layout_marginEnd="8dp"
                 android:text="@{Book.publishedDate}"
                 android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imgCover"
                 app:layout_constraintTop_toBottomOf="@+id/tvPublisher" />
 

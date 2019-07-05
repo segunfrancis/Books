@@ -39,8 +39,8 @@ public class SearchActivity extends AppCompatActivity {
                 // SharedPreferences
                 Context context = getApplicationContext();
                 int position = SpUtil.getPreferenceInt(context, SpUtil.POSITION);
-                if (position == 0 || position == 1) {
-                    position = 0;
+                if (position == 0 || position == 5) {
+                    position = 1;
                 } else {
                     position++;
                 }
