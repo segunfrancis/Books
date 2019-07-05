@@ -3,6 +3,8 @@ package com.example.books;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.ArrayList;
+
 public class SpUtil {
     public SpUtil() {
     }
@@ -33,5 +35,17 @@ public class SpUtil {
         SharedPreferences.Editor editor = getPrefs(context).edit();
         editor.putInt(key, value);
         editor.apply();
+    }
+
+    public static ArrayList<String> getQueryList(Context context) {
+        ArrayList<String> queryList = new ArrayList<>();
+        for (int i = 1; i < 5; i++) {
+            String query = getPrefs(context).getString(QUERY + String.valueOf(i), "");
+            if (!query.isEmpty()) {
+                query = query.replace(",", " ");
+                queryList.add(query.trim());
+            }
+        }
+        return  queryList;
     }
 }

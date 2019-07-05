@@ -54,6 +54,13 @@ public class BookListActivity extends AppCompatActivity implements SearchView.On
         final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setOnQueryTextListener(this);
+        ArrayList<String> recentList = SpUtil.getQueryList(getApplicationContext());
+        int itemNum = recentList.size();
+        MenuItem recentMenu;
+        for (int i = 0; i < itemNum; i++) {
+            recentMenu = menu.add(Menu.NONE, i, Menu.NONE, recentList.get(i));
+        }
+
         return true;
     }
 
